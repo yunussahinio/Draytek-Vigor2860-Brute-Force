@@ -3,10 +3,10 @@ from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import WebDriverException
 import time,sys,os
 os.system("@echo off")
-os.system("echo Faruk Babaaaagh")
+os.system("echo Hayde başlayalım.")
 #http://85.105.102.172/weblogin.htm
-passFileName= "RkmXxx2019.txt" #debug
-ipFileName= "ipadres.txt" #debug
+passFileName= "passlist.txt" #debug
+ipFileName= "iplist.txt" #debug
 #passFileName= sys.argv[1] #release
 #ipFileName = sys.argv[2] #release
 with open(passFileName) as passList: 
@@ -41,12 +41,5 @@ with open(passFileName) as passList:
                             resultFile.write(f"{ip};{p};could not tested(timeout);\n")
                         else:
                             os.system(f"echo {ip} {p} could not tested")
-                            resultFile.write(f"{ip};{p};could not tested;\n")
-
-        
-                
-            
-        
-    
-
+                            resultFile.write(f"{ip};{p};could not tested;\n")       
 os.system("echo Saygılar abi..")
